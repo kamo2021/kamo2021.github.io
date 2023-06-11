@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <!-- js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("-saL-dFusu4D4H7nP");
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <ul>
+                <li>HOME</li>
+                <li>NEWS</li>
+                <li>PRICING</li>
+            </ul>
+            <ul>
+                <li class="card">CARD</li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <div class="shopping-card">
+        <span class="close-span">X</span>
+        <span class="total">Total</span>
+        <div class="shopping">
+
+        </div>
+        <button id="buy-btn">BUY</button>
+    </div>
+
+   
+
+
+
+    <script defer src="script.js"></script>
+    <script>
+        function sendEmail() {
+            var params = {
+                from_name: document.getElementById('fullName').value,
+                email_id: document.getElementById('email_id').value,
+                message: document.getElementById('message').value,
+            }
+            emailjs.send('service_1rv9irx', 'template_qy8lvah', params).then(function () {
+                alert('successes');
+            }).catch(function (err) {
+                alert(err)
+            })
+        }
+    </script>
+
+     <!-- buy -->
+     <div id="pay">
+            <input type="text" id="fullName" placeholder="Phone number" required><br>
+            <input type="email" id="email_id" placeholder="Full name" required><br>
+            <textarea id="message" cols="30" rows="10"></textarea>
+            <button onclick=sendEmail()>send</button>
+            <span id="pay-close">X</span>
+    </div>
+
+</body>
+
+</html>
